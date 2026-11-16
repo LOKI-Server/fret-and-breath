@@ -7,11 +7,12 @@ code, fonts, diagrams, and audio preview run locally.
 
 ## Build and install
 
-Use LOKI 0.6 and its `cargo-loki` packaging tool. Run these commands from this
+Use LOKI 0.7.0 and its `cargo-loki` packaging tool. Run these commands from this
 repository.
 
 ```text
 rustup target add wasm32-wasip2
+cargo update -p loki-sdk --precise 0.7.0
 cargo loki package --locked
 ```
 
