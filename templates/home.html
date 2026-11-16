@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="csrf-token" content="{{ csrf }}">
+  <title>Fret &amp; Breath</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to arrangement</a>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Fret <b>&amp;</b> Breath</span></div>
+    <div class="profile"><span class="profile-dot" aria-hidden="true"></span><span>@{{ username }}</span><button class="quiet small" id="logout" type="button">Sign out</button></div>
+  </header>
+  <div class="shell">
+    <aside class="library" aria-labelledby="library-title">
+      <div class="library-heading"><div><h2 id="library-title">My library</h2><p id="library-count">Loading…</p></div><button class="accent icon-button" id="new" type="button" aria-label="New arrangement" title="New arrangement">+</button></div>
+      <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" aria-label="Search arrangements" placeholder="Search library"></label>
+      <div class="filters" id="filters" aria-label="Filter by instrument">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="guitar" aria-pressed="false">Guitar</button>
+        <button type="button" data-filter="ocarina" aria-pressed="false">Ocarina</button>
+      </div>
+      <nav id="library-list" aria-label="Saved arrangements"></nav>
+      <div class="samples"><h3>Try a sample</h3><button class="sample-link" data-sample="guitar" type="button"><span class="instrument-icon guitar" aria-hidden="true"></span><span>Evening arpeggio</span><span aria-hidden="true">↗</span></button><button class="sample-link" data-sample="ocarina" type="button"><span class="instrument-icon ocarina" aria-hidden="true"></span><span>River steps</span><span aria-hidden="true">↗</span></button></div>
+    </aside>
+    <main id="workspace" tabindex="-1" aria-label="Arrangement workspace"><p class="loading">Loading your practice room…</p></main>
+  </div>
+  <p id="notice" role="status" aria-live="polite" hidden></p>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+    <form method="dialog">
+      <h2 id="confirm-title"></h2><p id="confirm-message"></p>
+      <div class="row end"><button value="cancel" autofocus>Cancel</button><button class="danger" id="confirm-action" value="confirm">Confirm</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
